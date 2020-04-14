@@ -5,26 +5,26 @@ from rest_framework import routers, serializers, viewsets
 class DebaterSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Debater
-        fields = ['name', 'discord_id']
+        fields = ['id', 'name', 'discord_id']
 
 
 class JudgeSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Judge
-        fields = ['name', 'discord_id', 'ballot_code']
+        fields = ['id', 'name', 'discord_id', 'ballot_code']
 
 
 class RoomSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Room
-        fields = ['name']
+        fields = ['id', 'name']
 
 
 class TeamSerializer(serializers.HyperlinkedModelSerializer):
     debaters = DebaterSerializer(many=True, read_only=True)
     class Meta:
         model = Team
-        fields = ['name', 'debaters']
+        fields = ['id', 'name', 'debaters']
 
 
 class RoundSerializer(serializers.HyperlinkedModelSerializer):
