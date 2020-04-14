@@ -42,25 +42,25 @@ class RoundSerializer(serializers.HyperlinkedModelSerializer):
                   'room']
 
 
-class DebaterViewSet(viewsets.ModelViewSet):
+class DebaterViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Debater.objects.all()
     serializer_class = DebaterSerializer
     filterset_fields = ['name', 'discord_id']
 
 
-class JudgeViewSet(viewsets.ModelViewSet):
+class JudgeViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Judge.objects.all()
     serializer_class = JudgeSerializer
     filterset_fields = ['name', 'discord_id']
 
 
-class RoomViewSet(viewsets.ModelViewSet):
+class RoomViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Room.objects.all()
     serializer_class = RoomSerializer
     filterset_fields = ['name']
 
 
-class RoundViewSet(viewsets.ModelViewSet):
+class RoundViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Round.objects.all()
     serializer_class = RoundSerializer
     filterset_fields = ['round_number']
